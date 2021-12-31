@@ -2,6 +2,22 @@
     <head>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' http://xxxx 'unsafe-inline' 'unsafe-eval'">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <script>
+        function getToken()
+{
+  var token = document.getElementById("loginframe").contentWindow.getToken("adB2CSignInSignUp");
+
+  if (token === "LoginIsRequired")
+    document.getElementById("tokenTextarea").value = "Please login!!!"
+  else
+    document.getElementById("tokenTextarea").value = token.access_token;
+}
+
+function logOut()
+{
+  document.getElementById("loginframe").contentWindow.policyLogout("adB2CSignInSignUp", "B2C_1A_SignUpOrSignIn");
+}
+        </script>
 </head>
 <title>Rice APP</title>
 <p>This page is handled  by Rice App team</p>
