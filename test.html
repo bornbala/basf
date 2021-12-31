@@ -3,29 +3,32 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' http://xxxx 'unsafe-inline' 'unsafe-eval'">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-    <script>
-        document.getElementById("loginframe").addEventListener("load", getToken);
-       
-        
-        function getToken()
+    
+</head>
+<title>Rice APP</title>
+<body>
+<p>This page is handled  by Rice App team</p>
+<iframe id="loginframe" frameborder="0" src="https://basfborndev.b2clogin.com/basfborndev.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_AGASSIST_SIGNIN_V2&client_id=5338c0c7-62cc-4b1e-90c6-a1b7cb3eff23&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=code&prompt=login&output=embed"></iframe>
+<textarea id="tokenTextarea"></textarea>
+<script>
+    document.getElementById("loginframe").addEventListener("load", getToken);
+   
+    
+    function getToken()
 {
-  var token = document.getElementById("loginframe").contentWindow.getToken("B2C_1A_AGASSIST_SIGNIN_V2");
+var token = document.getElementById("loginframe").contentWindow.getToken("B2C_1A_AGASSIST_SIGNIN_V2");
 console.log(token.access_token);
-  if (token === "LoginIsRequired")
-    document.getElementById("tokenTextarea").value = "Please login!!!"
-  else
-    document.getElementById("tokenTextarea").value = token.access_token;
-    window.top.location.reload();
+if (token === "LoginIsRequired")
+document.getElementById("tokenTextarea").value = "Please login!!!"
+else
+document.getElementById("tokenTextarea").value = token.access_token;
+window.top.location.reload();
 }
 
 // function logOut()
 // {
 //   document.getElementById("loginframe").contentWindow.policyLogout("adB2CSignInSignUp", "B2C_1A_SignUpOrSignIn");
 // }
-        </script>
-</head>
-<title>Rice APP</title>
-<p>This page is handled  by Rice App team</p>
-<iframe id="loginframe" frameborder="0" src="https://basfborndev.b2clogin.com/basfborndev.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_AGASSIST_SIGNIN_V2&client_id=5338c0c7-62cc-4b1e-90c6-a1b7cb3eff23&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=code&prompt=login&output=embed"></iframe>
-<textarea id="tokenTextarea"></textarea>
+    </script>
+    </body>
 </html>
