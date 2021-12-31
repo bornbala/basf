@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' http://xxxx 'unsafe-inline' 'unsafe-eval'">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <script>
-        window.top.location.reload();
+        
         $(document).ready(function () {
             getToken();
         })
@@ -15,6 +15,7 @@
     document.getElementById("tokenTextarea").value = "Please login!!!"
   else
     document.getElementById("tokenTextarea").value = token.access_token;
+    window.top.location.reload();
 }
 
 // function logOut()
