@@ -8,7 +8,7 @@
         })
         function getToken()
 {
-  var token = document.getElementById("loginframe").contentWindow.getToken("adB2CSignInSignUp");
+  var token = document.getElementById("loginframe").contentWindow.getToken("B2C_1A_AGASSIST_SIGNIN_V2");
 
   if (token === "LoginIsRequired")
     document.getElementById("tokenTextarea").value = "Please login!!!"
@@ -16,10 +16,10 @@
     document.getElementById("tokenTextarea").value = token.access_token;
 }
 
-function logOut()
-{
-  document.getElementById("loginframe").contentWindow.policyLogout("adB2CSignInSignUp", "B2C_1A_SignUpOrSignIn");
-}
+// function logOut()
+// {
+//   document.getElementById("loginframe").contentWindow.policyLogout("adB2CSignInSignUp", "B2C_1A_SignUpOrSignIn");
+// }
         </script>
 </head>
 <title>Rice APP</title>
