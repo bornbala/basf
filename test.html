@@ -10,7 +10,7 @@
         function getToken()
 {
   var token = document.getElementById("loginframe").contentWindow.getToken("B2C_1A_AGASSIST_SIGNIN_V2");
-
+console.log(token.access_token);
   if (token === "LoginIsRequired")
     document.getElementById("tokenTextarea").value = "Please login!!!"
   else
